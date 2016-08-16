@@ -10,7 +10,8 @@ public class Motorcycle extends SugarRecord
     private User owner;
     private Double price;
     private String brand;
-    private Integer age;
+    private String model;
+    private Integer year;
 
     public Motorcycle()
     {
@@ -37,6 +38,16 @@ public class Motorcycle extends SugarRecord
         this.price = price;
     }
 
+    public String getModel()
+    {
+        return model;
+    }
+
+    public void setModel(String model)
+    {
+        this.model = model;
+    }
+
     public String getBrand()
     {
         return brand;
@@ -47,13 +58,13 @@ public class Motorcycle extends SugarRecord
         this.brand = brand;
     }
 
-    public Integer getAge()
+    public Integer getYear()
     {
-        return age;
+        return year;
     }
 
-    public void setAge(Integer age)
+    public void setYear(Integer year)
     {
-        this.age = age;
+        this.year = year;
     }
 }

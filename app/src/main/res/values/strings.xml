@@ -1,10 +1,24 @@
 <resources>
     <string name="app_name">MotoShared</string>
 
+    <string name="name">Nome</string>
     <string name="username">Nome de usuário</string>
     <string name="password">Senha</string>
+    <string name="age">Idade</string>
+    <string name="owner">Proprietário</string>
+    <string name="price">Preço</string>
+    <string name="brand">Marca</string>
+    <string name="model">Modelo</string>
+    <string name="year">Ano</string>
+    <string name="takePicture">Tirar Foto</string>
 
     <string name="login">Entrar</string>
+    <string name="save">Salvar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="createMotorcycle">Cadastrar Moto a Ser Vendida</string>
+
     <string name="forgotMyPass">Esqueci a senha</string>
     <string name="createAccount">Criar uma conta</string>
+
+
 </resources>

@@ -1,5 +1,7 @@
 package com.tads.motoshared.control;
 
+import android.util.Log;
+
 import com.tads.motoshared.model.User;
 
 import java.util.ArrayList;
@@ -16,7 +18,10 @@ public class UserControl
         user.setUsername(username);
         user.setPassword(password);
 
-        return listByFilter(user, null).get(0);
+        if(listByFilter(user, null) != null && listByFilter(user, null).size() > 0)
+            return listByFilter(user, null).get(0);
+        else
+            return null;
     }
 
     public void save(User obj)
@@ -49,36 +54,23 @@ public class UserControl
     public List<User> listByFilter(User filter, String endQuery)
     {
         String query = "SELECT * FROM User WHERE 1 = 1";
-        List<String> args = new ArrayList<>();
 
         if(filter.getName() != null && !filter.getName().isEmpty())
-        {
-            query += " AND name = ?";
-            args.add(filter.getName());
-        }
+            query += " AND name = '"+filter.getName()+"'";
 
         if(filter.getAge() != null)
-        {
-            query += " AND age = ?";
-            args.add(filter.getAge().toString());
-        }
+            query += " AND age = "+filter.getAge();
 
         if(filter.getUsername() != null && !filter.getUsername().isEmpty())
-        {
-            query += " AND username = ?";
-            args.add(filter.getUsername());
-        }
+            query += " AND username = '"+filter.getUsername()+"'";
 
         if(filter.getPassword() != null && !filter.getPassword().isEmpty())
-        {
-            query += " AND password = ?";
-            args.add(filter.getPassword());
-        }
+            query += " AND password = '"+filter.getPassword()+"'";
 
         if(endQuery != null && !endQuery.isEmpty())
             query += " "+endQuery;
 
-        return User.findWithQuery(User.class, query, (String[]) args.toArray());
+        return User.findWithQuery(User.class, query);
     }
 
 }

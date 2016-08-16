@@ -40,35 +40,25 @@ public class MotorcycleControl
     public List<Motorcycle> listByFilter(Motorcycle filter, String endQuery)
     {
         String query = "SELECT * FROM Motorcycle WHERE 1 = 1";
-        List<String> args = new ArrayList<>();
 
         if(filter.getOwner() != null && filter.getOwner().getId() != null)
-        {
-            query += " AND Motorcyle.owner.id = ?";
-            args.add(filter.getOwner().getId().toString());
-        }
+            query += " AND Motorcyle.owner.id = "+filter.getOwner().getId().toString();
 
         if(filter.getPrice() != null)
-        {
-            query += " AND price = ?";
-            args.add(filter.getPrice().toString());
-        }
+            query += " AND price = "+filter.getPrice().toString();
 
         if(filter.getBrand() != null && !filter.getBrand().isEmpty())
-        {
-            query += " AND brand = ?";
-            args.add(filter.getBrand());
-        }
+            query += " AND brand = '"+filter.getBrand()+"'";
 
-        if(filter.getAge() != null)
-        {
-            query += " AND age = ?";
-            args.add(filter.getAge().toString());
-        }
+        if(filter.getModel() != null && !filter.getModel().isEmpty())
+            query += " AND model = '"+filter.getModel()+"'";
+
+        if(filter.getYear() != null)
+            query += " AND year = "+filter.getYear().toString();
 
         if(endQuery != null && !endQuery.isEmpty())
             query += " "+endQuery;
 
-        return Motorcycle.findWithQuery(Motorcycle.class, query, (String[]) args.toArray());
+        return Motorcycle.findWithQuery(Motorcycle.class, query);
     }
 }
