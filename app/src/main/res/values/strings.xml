@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">MotoShared</string>
+
+    <string name="username">Nome de usuário</string>
+    <string name="password">Senha</string>
+
+    <string name="login">Entrar</string>
+    <string name="forgotMyPass">Esqueci a senha</string>
+    <string name="createAccount">Criar uma conta</string>
+</resources>
