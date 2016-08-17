@@ -12,33 +12,45 @@ import com.tads.motoshared.model.User;
 
 public class CreateAccount extends AppCompatActivity {
     UserControl control = new UserControl();
-    EditText edName;
+    //EditText edName;
     EditText edUsername;
     EditText edPassword;
-    EditText edAge;
+    //EditText edAge;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
 
-        edName = (EditText) findViewById(R.id.ed_name);
+        //edName = (EditText) findViewById(R.id.ed_name);
         edUsername = (EditText) findViewById(R.id.ed_username);
         edPassword = (EditText) findViewById(R.id.ed_password);
-        edAge = (EditText) findViewById(R.id.ed_age);
+        //edAge = (EditText) findViewById(R.id.ed_age);
     }
 
     public void save(View view)
     {
-        User user = new User();
-        user.setName(edName.getText().toString());
-        user.setUsername(edUsername.getText().toString());
-        user.setPassword(edPassword.getText().toString());
-        user.setAge(Integer.parseInt(edAge.getText().toString()));
+        boolean formNotEmpty = true;
+        if(edUsername.getText().toString().isEmpty()){
+            edUsername.requestFocus();
+            edUsername.setError("Por favor preencha o campo Nome de Usuário");
+            formNotEmpty = false;
+        }
+        if(edPassword.getText().toString().isEmpty()){
+            edPassword.requestFocus();
+            edPassword.setError("Por favor preencha o campo Senha");
+            formNotEmpty = false;
+        }
+        if(formNotEmpty){
+            User user = new User();
 
-        control.save(user);
-        Toast.makeText(this, "Cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
-        finish();
+            user.setUsername(edUsername.getText().toString());
+            user.setPassword(edPassword.getText().toString());
+
+            control.save(user);
+            Toast.makeText(this, "Cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
+            finish();
+        }
     }
 
     public void cancel(View view)

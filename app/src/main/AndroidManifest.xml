@@ -11,10 +11,10 @@
         android:theme="@style/AppTheme">
         <meta-data
             android:name="DATABASE"
-            android:value="motoshared_db"/>
+            android:value="motoshared.db"/>
         <meta-data
             android:name="VERSION"
-            android:value="1"/>
+            android:value="3"/>
         <meta-data
             android:name="QUERY_LOG"
             android:value="true"/>

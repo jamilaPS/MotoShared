@@ -8,8 +8,7 @@ import com.orm.dsl.Unique;
  */
 public class User extends SugarRecord
 {
-    private String name;
-    private Integer age;
+
     @Unique
     private String username;
     private String password;
@@ -19,25 +18,6 @@ public class User extends SugarRecord
 
     }
 
-    public String getName()
-    {
-        return name;
-    }
-
-    public void setName(String name)
-    {
-        this.name = name;
-    }
-
-    public Integer getAge()
-    {
-        return age;
-    }
-
-    public void setAge(Integer age)
-    {
-        this.age = age;
-    }
 
     public String getUsername()
     {

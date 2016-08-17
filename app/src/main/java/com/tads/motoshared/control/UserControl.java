@@ -55,12 +55,6 @@ public class UserControl
     {
         String query = "SELECT * FROM User WHERE 1 = 1";
 
-        if(filter.getName() != null && !filter.getName().isEmpty())
-            query += " AND name = '"+filter.getName()+"'";
-
-        if(filter.getAge() != null)
-            query += " AND age = "+filter.getAge();
-
         if(filter.getUsername() != null && !filter.getUsername().isEmpty())
             query += " AND username = '"+filter.getUsername()+"'";
 
