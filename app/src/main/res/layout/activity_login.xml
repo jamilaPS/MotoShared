@@ -35,9 +35,11 @@
         android:inputType="textPassword"
         android:id="@+id/et_password" />
 
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:text="@string/login"
         android:id="@+id/bt_login"
         android:onClick="login"/>
@@ -46,13 +48,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_marginTop="20dp"
         android:text="@string/forgotMyPass"
-        android:id="@+id/tv_forgotMyPass" />
+        android:id="@+id/tv_forgotMyPass"
+        android:onClick="rememberPassword"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_marginTop="10dp"
         android:text="@string/createAccount"
         android:id="@+id/tv_createAccount"
         android:onClick="createAccount"/>

@@ -4,12 +4,14 @@
     <string name="name">Nome</string>
     <string name="username">Nome de usuário</string>
     <string name="password">Senha</string>
+    <string name="email">Email</string>
     <string name="age">Idade</string>
     <string name="owner">Proprietário</string>
     <string name="price">Preço</string>
     <string name="brand">Marca</string>
     <string name="model">Modelo</string>
     <string name="year">Ano</string>
+    <string name="phone">Celular para contato</string>
     <string name="takePicture">Tirar Foto</string>
 
     <string name="login">Entrar</string>

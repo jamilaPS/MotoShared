@@ -2,6 +2,10 @@ package com.tads.motoshared.view;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.tads.motoshared.R;
@@ -21,6 +25,25 @@ public class ListaMotorcycle extends AppCompatActivity {
         setContentView(R.layout.activity_lista_motorcycle);
 
         listViewMotorcycle = (ListView) findViewById(R.id.listView_Motorcycle);
+        registerForContextMenu(listViewMotorcycle);
+
+
+    }
+
+    @Override
+    public void onCreateContextMenu(final ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
+        final Motorcycle motorcycle = (Motorcycle) listViewMotorcycle.getItemAtPosition(info.position);
+
+        MenuItem itemDelete = menu.add("Excluir");
+        itemDelete.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                motorcycle.delete(motorcycle);
+                completeList();
+                return false;
+            }
+        });
 
 
     }

@@ -15,6 +15,7 @@ public class CreateAccount extends AppCompatActivity {
     //EditText edName;
     EditText edUsername;
     EditText edPassword;
+    EditText edEmail;
     //EditText edAge;
 
     @Override
@@ -22,10 +23,10 @@ public class CreateAccount extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
 
-        //edName = (EditText) findViewById(R.id.ed_name);
         edUsername = (EditText) findViewById(R.id.ed_username);
         edPassword = (EditText) findViewById(R.id.ed_password);
-        //edAge = (EditText) findViewById(R.id.ed_age);
+        edEmail = (EditText) findViewById(R.id.ed_email);
+
     }
 
     public void save(View view)
@@ -41,11 +42,18 @@ public class CreateAccount extends AppCompatActivity {
             edPassword.setError("Por favor preencha o campo Senha");
             formNotEmpty = false;
         }
+
+        if(edEmail.getText().toString().isEmpty()){
+            edEmail.requestFocus();
+            edEmail.setError("Por favor preencha o campo Email");
+            formNotEmpty = false;
+        }
         if(formNotEmpty){
             User user = new User();
 
             user.setUsername(edUsername.getText().toString());
             user.setPassword(edPassword.getText().toString());
+            user.setEmail(edEmail.getText().toString());
 
             control.save(user);
             Toast.makeText(this, "Cadastrado com sucesso!", Toast.LENGTH_SHORT).show();

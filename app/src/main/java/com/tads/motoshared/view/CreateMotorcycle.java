@@ -31,7 +31,9 @@ public class CreateMotorcycle extends AppCompatActivity {
     EditText edBrand;
     EditText edModel;
     EditText edYear;
+    EditText edPhone;
     TextView tvCamera;
+
     private String name;
     private boolean hasPicture = false;
 
@@ -47,6 +49,7 @@ public class CreateMotorcycle extends AppCompatActivity {
         edBrand = (EditText) findViewById(R.id.ed_brand);
         edModel = (EditText) findViewById(R.id.ed_model);
         edYear = (EditText) findViewById(R.id.ed_year);
+        edPhone = (EditText) findViewById(R.id.ed_phone);
         tvCamera = (TextView) findViewById(R.id.tv_erroCamera);
 
         bt_camera = (Button) findViewById(R.id.bt_camera);
@@ -97,6 +100,11 @@ public class CreateMotorcycle extends AppCompatActivity {
             edModel.setError("Por favor preencha o campo Modelo");
             formNotEmpty = false;
         }
+        if(edPhone.getText().toString().isEmpty()){
+            edPhone.requestFocus();
+            edPhone.setError("Por favor, preencha o campo Telefone");
+            formNotEmpty = false;
+        }
         if (edYear.getText().toString().isEmpty()) {
             edYear.requestFocus();
             edYear.setError("Por favor preencha o campo Ano");
@@ -108,6 +116,7 @@ public class CreateMotorcycle extends AppCompatActivity {
             moto.setPrice(Double.parseDouble(edPrice.getText().toString()));
             moto.setBrand(edBrand.getText().toString());
             moto.setModel(edModel.getText().toString());
+            moto.setPhone(edPhone.getText().toString());
             moto.setYear(Integer.parseInt(edYear.getText().toString()));
 
             control.save(moto);

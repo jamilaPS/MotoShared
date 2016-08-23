@@ -1,6 +1,7 @@
 package com.tads.motoshared.view;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +16,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private EditText edUser;
     private EditText edPassword;
+    private User user;
     private UserControl control = new UserControl();
 
     @Override
@@ -24,6 +26,17 @@ public class LoginActivity extends AppCompatActivity {
 
         edUser = (EditText) findViewById(R.id.et_username);
         edPassword = (EditText) findViewById(R.id.et_password);
+    }
+
+    public void rememberPassword(View v){
+
+        Intent emailIntent = new Intent(Intent.ACTION_SEND);
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Título Email");
+        emailIntent.putExtra(Intent.EXTRA_TEXT, "Teste email");
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, "mariadefatima775@hotmail.com");
+        emailIntent.setType("message/rfc822");
+        startActivity(emailIntent);
+
     }
 
     public void login(View view)

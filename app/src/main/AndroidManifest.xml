@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.tads.motoshared">
 
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
     <application
         android:name="com.orm.SugarApp"
         android:allowBackup="true"
@@ -11,10 +12,10 @@
         android:theme="@style/AppTheme">
         <meta-data
             android:name="DATABASE"
-            android:value="motoshared.db"/>
+            android:value="motoshared2.db"/>
         <meta-data
             android:name="VERSION"
-            android:value="3"/>
+            android:value="1"/>
         <meta-data
             android:name="QUERY_LOG"
             android:value="true"/>
@@ -42,8 +43,7 @@
             android:label="@string/title_activity_main_profile"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
-        <activity android:name=".view.ListMotorcycleFragment">
-        </activity>
+
     </application>
 
 </manifest>
