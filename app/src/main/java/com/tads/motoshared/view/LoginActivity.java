@@ -32,7 +32,7 @@ public class LoginActivity extends AppCompatActivity {
         if(user != null)
         {
             LoggedUserUtil.LOGGED_USER = user;
-            Intent intent = new Intent(getApplicationContext(), MainMenu.class);
+            Intent intent = new Intent(getApplicationContext(), MainProfile.class);
             startActivity(intent);
         }
     }

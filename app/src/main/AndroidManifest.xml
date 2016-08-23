@@ -35,6 +35,15 @@
         </activity>
         <activity android:name=".view.CreateMotorcycle">
         </activity>
+        <activity android:name=".view.ListaMotorcycle">
+        </activity>
+        <activity
+            android:name=".view.MainProfile"
+            android:label="@string/title_activity_main_profile"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity android:name=".view.ListMotorcycleFragment">
+        </activity>
     </application>
 
 </manifest>

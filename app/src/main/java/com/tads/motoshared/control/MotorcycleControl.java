@@ -28,14 +28,14 @@ public class MotorcycleControl
         return Motorcycle.findById(Motorcycle.class, id);
     }
 
-    public List<Motorcycle> listAll(String orderBy)
+   /* public List<Motorcycle> listAll(String orderBy)
     {
         //Implements your validations here!
         if(orderBy != null && !orderBy.isEmpty())
             return Motorcycle.listAll(Motorcycle.class, orderBy);
         else
             return Motorcycle.listAll(Motorcycle.class);
-    }
+    }*/
 
     public List<Motorcycle> listByFilter(Motorcycle filter, String endQuery)
     {

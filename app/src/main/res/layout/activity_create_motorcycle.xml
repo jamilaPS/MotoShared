@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -10,6 +14,31 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
     tools:context="com.tads.motoshared.view.CreateMotorcycle">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="225dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:id="@+id/imageView"
+            android:src="@drawable/motorbike"
+            android:layout_gravity="center_horizontal"
+            android:background="#888a8e"/>
+
+        <Button
+            android:id="@+id/bt_camera"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:background="@drawable/fundo_bt"
+            android:layout_marginRight="16dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true" />
+
+
+    </RelativeLayout>
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -61,19 +90,7 @@
         android:layout_height="wrap_content"
         android:text=""
         android:textColor="#FF0000"
-        android:id="@+id/tv_erroCamera"
-        />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/takePicture"
-        android:onClick="takePicture"/>
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView"
-        android:layout_gravity="center_horizontal"/>
+        android:id="@+id/tv_erroCamera" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -91,3 +108,4 @@
 
     </LinearLayout>
 </LinearLayout>
+</ScrollView>

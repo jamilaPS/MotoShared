@@ -9,6 +9,7 @@ import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -34,6 +35,7 @@ public class CreateMotorcycle extends AppCompatActivity {
     private String name;
     private boolean hasPicture = false;
 
+    private Button bt_camera;
     MotorcycleControl control = new MotorcycleControl();
 
     @Override
@@ -46,6 +48,31 @@ public class CreateMotorcycle extends AppCompatActivity {
         edModel = (EditText) findViewById(R.id.ed_model);
         edYear = (EditText) findViewById(R.id.ed_year);
         tvCamera = (TextView) findViewById(R.id.tv_erroCamera);
+
+        bt_camera = (Button) findViewById(R.id.bt_camera);
+        bt_camera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                boolean formNotEmpty = true;
+                if (edModel.getText().toString().isEmpty()) {
+                    edModel.requestFocus();
+                    edModel.setError("Por favor preencha o campo Modelo");
+                    formNotEmpty = false;
+                }
+                if (edYear.getText().toString().isEmpty()) {
+                    formNotEmpty = false;
+                    edYear.requestFocus();
+                    edYear.setError("Por favor preencha o campo Ano");
+                }
+                if (formNotEmpty) {
+                    name = LoggedUserUtil.LOGGED_USER.getUsername() + "-" + edModel.getText().toString() + "-" + edYear.getText().toString() + ".png";
+                    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    startActivityForResult(intent, 1);
+                }
+
+            }
+        });
     }
 
     public void save(View view) {
@@ -84,6 +111,8 @@ public class CreateMotorcycle extends AppCompatActivity {
             moto.setYear(Integer.parseInt(edYear.getText().toString()));
 
             control.save(moto);
+            Intent intent = new Intent(getApplicationContext(), ListaMotorcycle.class);
+            startActivity(intent);
             Toast.makeText(this, "Cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
             finish();
         }
@@ -93,24 +122,6 @@ public class CreateMotorcycle extends AppCompatActivity {
         finish();
     }
 
-    public void takePicture(View view) {
-        boolean formNotEmpty = true;
-        if (edModel.getText().toString().isEmpty()) {
-            edModel.requestFocus();
-            edModel.setError("Por favor preencha o campo Modelo");
-            formNotEmpty = false;
-        }
-        if (edYear.getText().toString().isEmpty()) {
-            formNotEmpty = false;
-            edYear.requestFocus();
-            edYear.setError("Por favor preencha o campo Ano");
-        }
-        if (formNotEmpty) {
-            name = LoggedUserUtil.LOGGED_USER.getUsername() + "-" + edModel.getText().toString() + "-" + edYear.getText().toString() + ".png";
-            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            startActivityForResult(intent, 1);
-        }
-    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
