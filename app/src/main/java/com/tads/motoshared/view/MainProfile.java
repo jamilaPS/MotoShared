@@ -66,7 +66,7 @@ public class MainProfile extends AppCompatActivity
                     ActivityCompat.requestPermissions(MainProfile.this, new String[]{Manifest.permission.CALL_PHONE}, 1);
                 }else {
                     Intent intentLigar = new Intent(Intent.ACTION_CALL);
-                    intentLigar.setData(Uri.parse("tel: " +motorcycle.getPhone()));
+                    //intentLigar.setData(Uri.parse("tel: " +motorcycle.getPhone()));
                     startActivity(intentLigar);
                 }
                 return false;
@@ -121,6 +121,8 @@ public class MainProfile extends AppCompatActivity
 
         } else if (id == R.id.nav_log_out) {
             //SAIR
+            Intent intentLogOut = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(intentLogOut);
 
         }
 

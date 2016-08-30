@@ -11,7 +11,6 @@ public class Motorcycle extends SugarRecord
     private Double price;
     private String brand;
     private String model;
-    private String phone;
     private Integer year;
 
     public Motorcycle()
@@ -57,14 +56,6 @@ public class Motorcycle extends SugarRecord
     public void setBrand(String brand)
     {
         this.brand = brand;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
     }
 
     public Integer getYear()

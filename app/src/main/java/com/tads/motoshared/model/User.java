@@ -13,6 +13,7 @@ public class User extends SugarRecord
     private String username;
     private String password;
     private String email;
+    private String phone;
 
     public User()
     {
@@ -46,5 +47,13 @@ public class User extends SugarRecord
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }

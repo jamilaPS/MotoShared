@@ -4,21 +4,21 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_motorcycle"
-            android:icon="@drawable/ic_menu_send"
+            android:icon="@drawable/motorbike"
             android:title="Cadastrar venda"/>
 
         <item
             android:id="@+id/nav_motorcycles_sale"
-            android:icon="@drawable/ic_menu_send"
+            android:icon="@drawable/motorbike"
             android:title="Motos a venda"/>
 
         <item
             android:id="@+id/nav_wishlist"
-            android:icon="@drawable/ic_menu_send"
+            android:icon="@drawable/ic_card_giftcard_black"
             android:title="Lista de Desejos"/>
         <item
             android:id="@+id/nav_shopping_cart"
-            android:icon="@drawable/ic_menu_send"
+            android:icon="@drawable/ic_shopping_cart_black"
             android:title="Carrinho"/>
 
     </group>
@@ -27,7 +27,7 @@
         <menu>
             <item
                 android:id="@+id/nav_log_out"
-                android:icon="@drawable/ic_menu_share"
+                android:icon="@drawable/ic_settings_power_black"
                 android:title="Sair"/>
         </menu>
     </item>

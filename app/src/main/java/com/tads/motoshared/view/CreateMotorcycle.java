@@ -100,11 +100,7 @@ public class CreateMotorcycle extends AppCompatActivity {
             edModel.setError("Por favor preencha o campo Modelo");
             formNotEmpty = false;
         }
-        if(edPhone.getText().toString().isEmpty()){
-            edPhone.requestFocus();
-            edPhone.setError("Por favor, preencha o campo Telefone");
-            formNotEmpty = false;
-        }
+
         if (edYear.getText().toString().isEmpty()) {
             edYear.requestFocus();
             edYear.setError("Por favor preencha o campo Ano");
@@ -116,7 +112,6 @@ public class CreateMotorcycle extends AppCompatActivity {
             moto.setPrice(Double.parseDouble(edPrice.getText().toString()));
             moto.setBrand(edBrand.getText().toString());
             moto.setModel(edModel.getText().toString());
-            moto.setPhone(edPhone.getText().toString());
             moto.setYear(Integer.parseInt(edYear.getText().toString()));
 
             control.save(moto);

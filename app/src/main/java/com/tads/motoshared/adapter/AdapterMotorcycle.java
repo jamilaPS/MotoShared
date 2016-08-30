@@ -26,6 +26,7 @@ public class AdapterMotorcycle extends BaseAdapter {
         this.activity = activity;
     }
 
+
     @Override
     public int getCount() {
         return motorcycleList.size();
@@ -60,8 +61,8 @@ public class AdapterMotorcycle extends BaseAdapter {
         TextView tvPrice = (TextView) view.findViewById(R.id.tv_price);
         tvPrice.setText(motorcycle.getPrice().toString());
 
-        TextView tvPhone = (TextView) view.findViewById(R.id.tv_phone);
-        tvPhone.setText(motorcycle.getPhone());
+        //TextView tvPhone = (TextView) view.findViewById(R.id.tv_phone);
+        //tvPhone.setText(motorcycle.getPhone());
 
         return view;
     }

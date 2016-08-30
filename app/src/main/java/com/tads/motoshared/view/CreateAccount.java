@@ -16,6 +16,7 @@ public class CreateAccount extends AppCompatActivity {
     EditText edUsername;
     EditText edPassword;
     EditText edEmail;
+    EditText edPhone;
     //EditText edAge;
 
     @Override
@@ -48,12 +49,18 @@ public class CreateAccount extends AppCompatActivity {
             edEmail.setError("Por favor preencha o campo Email");
             formNotEmpty = false;
         }
+        if(edPhone.getText().toString().isEmpty()){
+            edPhone.requestFocus();
+            edPhone.setError("Por favor, preencha o campo Telefone");
+            formNotEmpty = false;
+        }
         if(formNotEmpty){
             User user = new User();
 
             user.setUsername(edUsername.getText().toString());
             user.setPassword(edPassword.getText().toString());
             user.setEmail(edEmail.getText().toString());
+            user.setPhone(edPhone.getText().toString());
 
             control.save(user);
             Toast.makeText(this, "Cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
